@@ -1,0 +1,4 @@
+{
+    "port": 5000,
+    "mongoUri": "mongodb+srv://vladislav:Hesoyam!@mern-ut6xq.mongodb.net/app"
+}
