@@ -8,7 +8,7 @@ router.get('/list', async (req, res) => {
     if (!todos) {
       res.json({ message: 'Записей нет' });
     } else {
-      res.json(todos);
+      res.status(200).json({ todos });
     }
   } catch (e) {
     res.status(500).json({ message: 'Что-то пошло не так, попробуйте снова...' });
@@ -18,7 +18,7 @@ router.get('/list', async (req, res) => {
 router.get('/detail/:id', async (req, res) => {
   try {
     const todo = await Todo.findById(req.params.id);
-    res.json(todo);
+    res.status(200).json({ todo });
   } catch (e) {
     res.status(500).json({ message: 'Что-то пошло не так, попробуйте снова...' });
   }
@@ -38,5 +38,17 @@ router.post('/create', async (req, res) => {
     res.status(500).json({ message: 'Что-то пошло не так, попробуйте снова...' });
   }
 });
+
+// router.post('/completed/:id', async (req, res) => {
+//   try {
+//     const todo = await Todo.findById(req.params.id);
+//     complete = todo.completed;
+//     todo.completed = !complete;
+//     await todo.save();
+//     res.status(200).json({ todo });
+//   } catch (e) {
+//     res.status(500).json({ message: 'Что-то пошло не так, попробуйте снова...' });
+//   }
+// });
 
 module.exports = router;
