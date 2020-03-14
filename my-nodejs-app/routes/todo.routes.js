@@ -39,16 +39,16 @@ router.post('/create', async (req, res) => {
   }
 });
 
- router.post('/completed/:id', async (req, res) => {
-   try {
-     const todo = await Todo.findById(req.params.id);
-     complete = todo.completed;
-     todo.completed = !complete;
-     await todo.save();
-     res.status(200).json({ todo });
-   } catch (e) {
-     res.status(500).json({ message: 'Что-то пошло не так, попробуйте снова...' });
-   }
- });
+router.post('/completed/:id', async (req, res) => {
+  try {
+    const todo = await Todo.findById(req.params.id);
+    const complete = todo.completed;
+    todo.completed = !complete;
+    await todo.save();
+    res.status(200).json({ todo });
+  } catch (e) {
+    res.status(500).json({ message: 'Что-то пошло не так, попробуйте снова...' });
+  }
+});
 
 module.exports = router;

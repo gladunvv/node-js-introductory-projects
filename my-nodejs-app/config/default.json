@@ -1,4 +1,4 @@
 {
     "port": 5000,
-    "mongoUri": "mongodb+srv://vladislav:Hesoyam!@myapp-ut6xq.mongodb.net/test?retryWrites=true&w=majority"
+    "mongoUri": "mongodb+srv://vladislav:Hesoyam!@mynewapp-wjwut.mongodb.net/app"
 }
